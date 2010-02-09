@@ -12,9 +12,9 @@ set showcmd     "show incomplete cmds down the bottom
 set showmode    "show current mode down the bottom
 
 set incsearch   "find the next match as we type the search
-set hlsearch    "hilight searches by default
+"set hlsearch    "hilight searches by default
 
-set nowrap      "dont wrap lines
+"set nowrap      "dont wrap lines
 set linebreak   "wrap lines at convenient points
 
 "statusline setup
@@ -168,8 +168,8 @@ function! s:Median(nums)
 endfunction
 
 "indent settings
-set shiftwidth=4
-set softtabstop=4
+set shiftwidth=2
+set softtabstop=2
 set expandtab
 set autoindent
 
@@ -209,6 +209,9 @@ set t_Co=256
 
 "hide buffers when not displayed
 set hidden
+"Save file after focus lost
+:au FocusLost * :wa
+set autowriteall
 
 "dont load csapprox if we no gui support - silences an annoying warning
 if !has("gui")
@@ -284,3 +287,35 @@ function! s:HighlightLongLines(width)
         echomsg "Usage: HighlightLongLines [natural number]"
     endif
 endfunction
+
+
+
+set guioptions-=T
+set autoread
+
+winpos 0 0
+set lines=38
+set columns=94
+colorscheme desert
+set guifont=monospace\ 10
+set number
+
+map <C-t> :NERDTreeToggle<CR>
+nmap <C-A-f> :NERDTreeFind<CR>
+
+nmap <C-A-a> :R<CR>
+nmap <A-A> :R<CR>
+nmap <A-a> :R<CR>
+nmap <C-A-h> :Rhelper 
+nmap <C-A-v> :Rview 
+nmap <C-A-c> :Rcontroller 
+nmap <C-A-m> :Rmodel 
+
+nmap <A-,> :cprevious<CR>
+nmap <A-.> :cnext<CR>
+
+" no swap files
+set nobackup
+set nowritebackup
+set noswapfile
+
