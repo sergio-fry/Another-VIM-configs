@@ -297,11 +297,13 @@ winpos 0 0
 set lines=38
 set columns=94
 colorscheme desert
-set guifont=monospace\ 10
+set guifont=consolas\ 13
 set number
 
-map <C-t> :NERDTreeToggle<CR>
+nmap <C-A-t> :NERDTreeToggle<CR>
 nmap <C-A-f> :NERDTreeFind<CR>
+nmap <C-Tab> :tabnext<CR>
+
 
 nmap <C-A-a> :R<CR>
 nmap <A-A> :R<CR>
@@ -318,4 +320,8 @@ nmap <A-.> :cnext<CR>
 set nobackup
 set nowritebackup
 set noswapfile
+
+set tags=./tags,tags,./tmp/tags
+
+map <C-F12> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 
