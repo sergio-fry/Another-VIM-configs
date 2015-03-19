@@ -1,0 +1,8 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_1='/home/r_wilco/Code/linkfeed/bin/test/api'
+let g:netrw_dirhist_2='/home/r_wilco/Code/linkfeed/db/migrate'
+let g:netrw_dirhist_3='/home/r_wilco/Code/linkfeed/db'
+let g:netrw_dirhist_4='/home/r_wilco/Code/linkfeed/db/migrate'
+let g:netrw_dirhist_5='/home/r_wilco/Code/linkfeed/db'
+let g:netrw_dirhist_6='/home/r_wilco/Code/linkfeed/db/migrate'
