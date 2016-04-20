@@ -7,4 +7,6 @@ My VIM configs
 $ git clone https://github.com/sergio-fry/Another-VIM-configs.git ~/.vim
 $ ln -s $HOME/.vim/vimrc ~/.vimrc
 $ cd ~/.vim
+$ git submodule init
+$ git submodule update
 ```
