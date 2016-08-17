@@ -224,3 +224,6 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:UltiSnipsEditSplit="vertical"
 
 set backspace=indent,eol,start
+
+" :nmap  !ripper-tags -R --exclude=vendor
+set ruler
