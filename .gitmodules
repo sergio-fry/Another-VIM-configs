@@ -37,3 +37,6 @@
 [submodule "bundle/vim-ember-hbs"]
 	path = bundle/vim-ember-hbs
 	url = https://github.com/joukevandermaas/vim-ember-hbs.git
+[submodule "bundle/vim-open-alternate"]
+	path = bundle/vim-open-alternate
+	url = git@github.com:cyphactor/vim-open-alternate.git

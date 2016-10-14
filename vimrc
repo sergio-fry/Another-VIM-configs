@@ -227,3 +227,5 @@ set backspace=indent,eol,start
 
 " :nmap  !ripper-tags -R --exclude=vendor
 set ruler
+
+:command A :OpenAlternate
