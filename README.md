@@ -10,3 +10,7 @@ $ cd ~/.vim
 $ git submodule init
 $ git submodule update
 ```
+
+## TODO
+
+* select code blocks (function, class, ..) ? http://vimawesome.com/plugin/textobj-rubyblock
