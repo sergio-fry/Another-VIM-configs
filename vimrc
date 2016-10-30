@@ -1,12 +1,10 @@
 execute pathogen#infect()
 set t_Co=256
-set tags=./tags,tags,~/.rvm/tags,../tags
 
 " no swap files
 "set nobackup
 "set nowritebackup
 set noswapfile
-
 
 "Use Vim settings, rather then Vi settings (much better!).
 "This must be first, because it changes other options as a side effect.
@@ -17,7 +15,6 @@ set incsearch   "find the next match as we type the search
 set wrap
 set linebreak   "wrap lines at convenient points
 
-
 "indent settings
 set shiftwidth=2
 set tabstop=2
@@ -26,9 +23,7 @@ set autoindent
 
 set nofoldenable    " disable folding
 
-
 set formatoptions-=o "dont continue comments when pushing o/O
-
 
 "vertical/horizontal scroll off settings
 set scrolloff=3
@@ -48,7 +43,6 @@ syntax on
 set hlsearch
 nmap ,n :nohlsearch<cr>
 
-
 "Save file after focus lost
 :au FocusLost * :wa
 :au BufLeave * :wa
@@ -56,17 +50,19 @@ set autowriteall
 " TODO: autowrite on exit from editing mode
 set hidden " do not lose undo history when switching
 
-" Tab navigation
-:map <A-1> 1gt
-:map <A-2> 2gt
-:map <A-3> 3gt
-:map <A-4> 4gt
-:map <A-5> 5gt
-:map <A-6> 6gt
-:map <A-7> 7gt
-:map <A-8> 8gt
-:map <A-9> 9gt
+" Open all buffers in tabs
 :map ,sb :tab sball<CR>
+
+" Tab navigation
+:nmap 11 1gt
+:nmap 22 2gt
+:nmap 33 3gt
+:nmap 44 4gt
+:nmap 55 5gt
+:nmap 66 6gt
+:nmap 77 7gt
+:nmap 88 8gt
+:nmap 99 9gt
 
 " remove menu
 set guioptions-=T
@@ -95,20 +91,10 @@ endif
 " remove highlight
 :nmap ,WH :match ErrorMsg ''<CR>
 
-" most Recent files
-le g:fuf_modesDisable = []
-":nmap ,r :FufMruFile<CR>
-" find Buffer
 :nmap ,b :BufExplorer<CR>
-":nmap ,b :ls<CR>
 
 " Search file
 :nmap ,f :e **/*
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" NERDCommenter
-""nmap ,/ :call NERDComment(0, "invert")<CR>
-"vmap ,/ :call NERDComment(0, "invert")<CR>
 
 " Open current file dir
 function! FindFile(path, file)
@@ -137,46 +123,6 @@ function! OpenRecent()
   endfor
 endfunction
 :nmap ,r :call OpenRecent()<CR>
-
-
-" rspec mappings
-map ,t :call RunCurrentSpecFile()<CR>
-map ,l :call RunNearestSpec()<CR>
-map ,y :call RunLastSpec()<CR>
-
-function! RunCurrentSpecFile()
-  if InSpecFile()
-    let l:command = "bundle exec spec " . @% 
-    call SetLastSpecCommand(l:command)
-    call RunSpecs(l:command)
-  endif
-endfunction
-
-function! RunNearestSpec()
-  if InSpecFile()
-    let l:command = "bundle exec spec " . @% . ":" . line(".")
-    call SetLastSpecCommand(l:command)
-    call RunSpecs(l:command)
-  endif
-endfunction
-
-function! RunLastSpec()
-  if exists("t:last_spec_command")
-    call RunSpecs(t:last_spec_command)
-  endif
-endfunction
-
-function! InSpecFile()
-  return match(expand("%"), "_spec.rb$") != -1
-endfunction
-
-function! SetLastSpecCommand(command)
-  let t:last_spec_command = a:command
-endfunction
-
-function! RunSpecs(command)
-  execute ":w\|!clear && echo " . a:command . " && echo && " . a:command
-endfunction
 
 
 " Dictionaries
@@ -214,18 +160,20 @@ nmap <F8> :TagbarToggle<CR>
 
 :nmap <C-p> :FZF<CR>
 
-
-" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-
-" If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"
-
 set backspace=indent,eol,start
 
 " :nmap  !ripper-tags -R --exclude=vendor
 set ruler
 
 :command A :OpenAlternate
+
+" Run test
+:nmap <C-t> :VroomRunNearestTest<CR>
+:nmap ,t :VroomRunLastTest<CR>
+:let g:vroom_use_spring = 1
+:command SpringOn :let g:vroom_use_spring = 1
+:command SpringOff :let g:vroom_use_spring = 0
+
+:command GemTagsInstall :! gem install gem-ctags; gem ctags
+set tags=./tags,tags
+:command CtagsUpdate :! ctags -f tags -R lib -R app 

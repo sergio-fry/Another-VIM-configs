@@ -40,3 +40,9 @@
 [submodule "bundle/vim-open-alternate"]
 	path = bundle/vim-open-alternate
 	url = git@github.com:cyphactor/vim-open-alternate.git
+[submodule "bundle/vim-vroom"]
+	path = bundle/vim-vroom
+	url = git://github.com/skalnik/vim-vroom.git
+[submodule "bundle/vim-airline"]
+	path = bundle/vim-airline
+	url = https://github.com/bling/vim-airline
