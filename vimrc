@@ -162,8 +162,7 @@ nmap <F8> :TagbarToggle<CR>
 
 set backspace=indent,eol,start
 
-" :nmap  !ripper-tags -R --exclude=vendor
-set ruler
+"set ruler
 
 :command A :OpenAlternate
 
