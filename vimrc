@@ -1,4 +1,9 @@
+" Should be on very top
 execute pathogen#infect()
+
+set path+=**
+set wildmenu
+
 set t_Co=256
 
 " no swap files
@@ -21,10 +26,6 @@ set tabstop=2
 set expandtab
 set autoindent
 
-set nofoldenable    " disable folding
-
-set formatoptions-=o "dont continue comments when pushing o/O
-
 "vertical/horizontal scroll off settings
 set scrolloff=3
 set sidescrolloff=7
@@ -41,7 +42,7 @@ syntax on
 
 " highlight search results
 set hlsearch
-nmap ,n :nohlsearch<cr>
+" nmap ,n :nohlsearch<cr>
 
 "Save file after focus lost
 :au FocusLost * :wa
@@ -73,7 +74,7 @@ if has("gui_running")
   set guifont=Ubuntu\ Mono\ 15
 endif
 
-" autoread updatred files
+" autoread updated files
 set autoread
 
 set number
@@ -85,51 +86,35 @@ if $COLORTERM == 'gnome-terminal'
 else    
 endif 
 
-
-" highlight long lines
-:nmap ,wh :match ErrorMsg '\%>79v.\+'<CR>
-" remove highlight
-:nmap ,WH :match ErrorMsg ''<CR>
-
 :nmap ,b :BufExplorer<CR>
 
 " Search file
 :nmap ,f :e **/*
 
-" Open current file dir
-function! FindFile(path, file)
-  execute ":e ".a:path
-  execute ":0"
-  execute "/^".a:file
-endfunction
-":nmap ,p :call FindFile(expand("%:p:h"), expand("%:t"))<CR>
 :nmap ,p :NERDTreeFind<CR>
 :nmap ,P :NERDTreeClose<CR>
-
-:nmap ,s /\s\+$
 
 " No auto reloading
 " If you don't like automatic reloading because it slows Vim down or causes
 " problems you can add the following line to your vimrc script:
-let g:reload_on_write = 0
+" let g:reload_on_write = 0
 
 " No session autload
-let g:session_autoload = 'no'
+" let g:session_autoload = 'no'
 
-" TODO: ignore .git
-function! OpenRecent()
-  for i in split(system("list_new_files"))
-    execute ":e ".i
-  endfor
-endfunction
-:nmap ,r :call OpenRecent()<CR>
+"function! OpenRecent()
+"  for i in split(system("list_new_files"))
+"    execute ":e ".i
+"  endfor
+"endfunction
+":nmap ,r :call OpenRecent()<CR>
 
 
 " Dictionaries
-autocmd FileType javascript set dictionary=~/.vim/dict/javascript.dict
-autocmd FileType html set dictionary=~/.vim/dict/html.dict
-autocmd FileType css set dictionary=~/.vim/dict/css.dict
-autocmd FileType ruby set dictionary=~/.vim/dict/ruby.dict
+"autocmd FileType javascript set dictionary=~/.vim/dict/javascript.dict
+"autocmd FileType html set dictionary=~/.vim/dict/html.dict
+"autocmd FileType css set dictionary=~/.vim/dict/css.dict
+"autocmd FileType ruby set dictionary=~/.vim/dict/ruby.dict
 
 if version >= 700
   set history=64
@@ -149,14 +134,11 @@ function ModeChange()
 endfunction
 au BufWritePost * call ModeChange()
 
-
-nmap <F8> :TagbarToggle<CR>
-
 " Return to last edit position when opening files (You want this!)
- autocmd BufReadPost *
-     \ if line("'\"") > 0 && line("'\"") <= line("$") |
-     \   exe "normal! g`\"" |
-     \ endif
+" autocmd BufReadPost *
+"     \ if line("'\"") > 0 && line("'\"") <= line("$") |
+"     \   exe "normal! g`\"" |
+"     \ endif
 
 :nmap <C-p> :FZF<CR>
 
@@ -167,12 +149,47 @@ set backspace=indent,eol,start
 :command A :OpenAlternate
 
 " Run test
-:nmap <C-t> :VroomRunNearestTest<CR>
-:nmap ,t :VroomRunLastTest<CR>
+:nmap ,t :VroomRunNearestTest<CR>
+:nmap <C-t> :VroomRunLastTest<CR>
 :let g:vroom_use_spring = 1
 :command SpringOn :let g:vroom_use_spring = 1
 :command SpringOff :let g:vroom_use_spring = 0
 
-:command GemTagsInstall :! gem install gem-ctags; gem ctags
+
+" TODO
+"
+" BUILD INTEGRATION:
+
+" Steal Mr. Bradley's formatter & add it to our spec_helper
+" http://philipbradley.net/rspec-into-vim-with-quickfix
+
+" Configure the `make` command to run RSpec
+" set makeprg=bundle\ exec\ rspec\ -f\ QuickfixFormatter
+
+" NOW WE CAN:
+" - Run :make to run RSpec
+" - :cl to list errors
+" - :cc# to jump to error by number
+" - :cn and :cp to navigate forward and back
+
+:command CtagsGemsUpdate :! gem install gem-ctags; gem ctags
 set tags=./tags,tags
-:command CtagsUpdate :! ctags -f tags -R lib -R app 
+:command CtagsUpdate :! ctags --fields=+l -f tags -R lib -R app -R tests -R specs -R vendor
+
+
+" FILE BROWSING:
+"
+" Tweaks for browsing
+"let g:netrw_banner=0        " disable annoying banner
+"let g:netrw_browse_split=4  " open in prior window
+" let g:netrw_altv=1          " open splits to the right
+"let g:netrw_liststyle=3     " tree view
+"let g:netrw_list_hide=netrw_gitignore#Hide()
+"let g:netrw_list_hide.=',\(^\|\s\s\)\zs\.\S\+'
+
+
+
+" SNIPPETS:
+"
+" Read an empty HTML template and move cursor to title
+nnoremap ,html :-1read $HOME/.vim/.skeleton.html<CR>3jwf>a
