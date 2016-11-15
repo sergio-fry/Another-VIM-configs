@@ -15,7 +15,7 @@
 	url = https://github.com/scrooloose/nerdtree.git
 [submodule "bundle/ultisnips"]
 	path = bundle/ultisnips
-	url = https://github.com/SirVer/ultisnips.git
+	url = git@github.com:SirVer/ultisnips.git
 [submodule "bundle/vim-bundler"]
 	path = bundle/vim-bundler
 	url = git://github.com/tpope/vim-bundler.git
@@ -33,7 +33,7 @@
 	url = https://github.com/vim-ruby/vim-ruby.git
 [submodule "bundle/vim-snippets"]
 	path = bundle/vim-snippets
-	url = https://github.com/honza/vim-snippets.git
+	url = https://github.com/honza/vim-snippets
 [submodule "bundle/vim-ember-hbs"]
 	path = bundle/vim-ember-hbs
 	url = https://github.com/joukevandermaas/vim-ember-hbs.git
@@ -64,3 +64,6 @@
 [submodule "bundle/youcompleteme"]
 	path = bundle/youcompleteme
 	url = https://github.com/valloric/youcompleteme
+[submodule "bundle/vim-gitgutter"]
+	path = bundle/vim-gitgutter
+	url = https://github.com/airblade/vim-gitgutter

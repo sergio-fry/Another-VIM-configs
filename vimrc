@@ -42,7 +42,7 @@ syntax on
 
 " highlight search results
 set hlsearch
-" nmap ,n :nohlsearch<cr>
+nmap ,n :nohlsearch<cr>
 
 "Save file after focus lost
 :au FocusLost * :wa
@@ -77,7 +77,7 @@ endif
 " autoread updated files
 set autoread
 
-set number
+"set number
 
 " sudo apt-get install ncurses-term
 if $COLORTERM == 'gnome-terminal'
@@ -172,7 +172,6 @@ set backspace=indent,eol,start
 " - :cc# to jump to error by number
 " - :cn and :cp to navigate forward and back
 
-:command CtagsGemsUpdate :! gem install gem-ctags; gem ctags
 set tags=./tags,tags
 :command CtagsUpdate :! ctags --fields=+l -f tags -R lib -R app -R tests -R specs -R vendor
 
@@ -190,6 +189,7 @@ set tags=./tags,tags
 
 
 " SNIPPETS:
-"
-" Read an empty HTML template and move cursor to title
-nnoremap ,html :-1read $HOME/.vim/.skeleton.html<CR>3jwf>a
+nnoremap ,= :-1read $HOME/.vim/my-snippets/print.erb<CR>f= a
+nnoremap ,% :-1read $HOME/.vim/my-snippets/exec.erb<CR>f% a
+
+
