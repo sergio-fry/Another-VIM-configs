@@ -20,6 +20,9 @@ set incsearch   "find the next match as we type the search
 set wrap
 set linebreak   "wrap lines at convenient points
 
+highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+match OverLength /\%81v.\+/
+
 "indent settings
 set shiftwidth=2
 set tabstop=2
