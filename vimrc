@@ -57,17 +57,6 @@ set hidden " do not lose undo history when switching
 " Open all buffers in tabs
 :map ,sb :tab sball<CR>
 
-" Tab navigation
-:nmap 11 1gt
-:nmap 22 2gt
-:nmap 33 3gt
-:nmap 44 4gt
-:nmap 55 5gt
-:nmap 66 6gt
-:nmap 77 7gt
-:nmap 88 8gt
-:nmap 99 9gt
-
 " remove menu
 set guioptions-=T
 
@@ -80,7 +69,7 @@ endif
 " autoread updated files
 set autoread
 
-"set number
+set number
 
 " sudo apt-get install ncurses-term
 if $COLORTERM == 'gnome-terminal'
@@ -176,7 +165,8 @@ set backspace=indent,eol,start
 " - :cn and :cp to navigate forward and back
 
 set tags=./tags,tags
-:command CtagsUpdate :! ctags --fields=+l -f tags -R lib -R app -R tests -R specs -R vendor
+:command CtagsUpdate :! ctags --fields=+l -f tags -R lib -R app -R test -R spec -R vendor
+set complete-=i
 
 
 " FILE BROWSING:
@@ -196,3 +186,10 @@ nnoremap ,= :-1read $HOME/.vim/my-snippets/print.erb<CR>f= a
 nnoremap ,% :-1read $HOME/.vim/my-snippets/exec.erb<CR>f% a
 
 
+
+" GitGutter config
+let g:gitgutter_signs = 1
+let g:gitgutter_sign_column_always = 1
+let g:gitgutter_highlight_lines = 0
+nmap ]g <Plug>GitGutterNextHunk
+nmap [g <Plug>GitGutterPrevHunk
