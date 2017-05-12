@@ -165,7 +165,7 @@ set backspace=indent,eol,start
 " - :cn and :cp to navigate forward and back
 
 set tags=./tags,tags
-:command CtagsUpdate :! ctags --fields=+l -f tags -R lib -R app -R test -R spec -R vendor
+:command CtagsUpdate :! ctags --fields=+l -f tags -R lib -R app -R test -R spec -R vendor -R .bundle
 set complete-=i
 
 
