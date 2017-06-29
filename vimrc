@@ -132,7 +132,12 @@ au BufWritePost * call ModeChange()
 "     \   exe "normal! g`\"" |
 "     \ endif
 
+
+" Fuzzy file search
 :nmap <C-p> :FZF<CR>
+
+" Find current word in files
+nmap <C-k> :Ack "<cword>"<CR>
 
 set backspace=indent,eol,start
 
@@ -193,3 +198,5 @@ let g:gitgutter_sign_column_always = 1
 let g:gitgutter_highlight_lines = 0
 nmap ]g <Plug>GitGutterNextHunk
 nmap [g <Plug>GitGutterPrevHunk
+
+
