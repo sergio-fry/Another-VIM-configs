@@ -146,6 +146,7 @@ set backspace=indent,eol,start
 :command A :OpenAlternate
 
 " Run test
+:nmap ,T :VroomRunTestFile<CR>
 :nmap ,t :VroomRunNearestTest<CR>
 :nmap <C-t> :VroomRunLastTest<CR>
 :let g:vroom_use_spring = 1
