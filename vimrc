@@ -143,7 +143,19 @@ set backspace=indent,eol,start
 
 "set ruler
 
-:command A :OpenAlternate
+
+" Run a given vim command on the results of alt from a given path.
+" See usage below.
+function! OpenAlternate(path, vim_command)
+  let l:alternate = system("alt " . a:path)
+  if empty(l:alternate)
+    echo "No alternate file for " . a:path . " exists!"
+  else
+    exec a:vim_command . " " . l:alternate
+  endif
+endfunction
+
+:command A :call OpenAlternate(expand('%'), ':e')
 
 " Run test
 :nmap ,T :VroomRunTestFile<CR>
