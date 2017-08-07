@@ -70,6 +70,3 @@
 [submodule "bundle/ultisnips"]
 	path = bundle/ultisnips
 	url = https://github.com/SirVer/ultisnips.git
-[submodule "bundle/alt"]
-	path = bundle/alt
-	url = https://github.com/uptech/alt.git
