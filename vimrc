@@ -182,8 +182,9 @@ endfunction
 " - :cc# to jump to error by number
 " - :cn and :cp to navigate forward and back
 
-set tags=./tags,tags
-:command CtagsUpdate :! ctags --fields=+l -f tags -R lib -R app -R test -R spec -R vendor -R .bundle
+" set tags=./tags,tags
+:command CtagsUpdate :! ctags --language-force=ruby --fields=+l -f tags -R *
+:command CtagsUpdateAll :! ctags --fields=+l -f tags -R lib -R app -R test -R spec -R vendor -R .bundle
 set complete-=i
 
 
