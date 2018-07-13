@@ -1,5 +1,17 @@
-" Should be on very top
-execute pathogen#infect()
+call plug#begin()
+Plug 'tpope/vim-fugitive'
+Plug 'mileszs/ack.vim'
+Plug 'jlanzarotta/bufexplorer'
+Plug 'junegunn/fzf'
+Plug 'scrooloose/nerdtree'
+Plug 'honza/vim-snippets'
+Plug 'sirver/ultisnips'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-surround'
+Plug 'bling/vim-airline'
+Plug 'ekalinin/dockerfile.vim'
+call plug#end()
+
 
 set path+=**
 set wildmenu
@@ -54,21 +66,13 @@ set autowriteall
 " TODO: autowrite on exit from editing mode
 set hidden " do not lose undo history when switching
 
-" Open all buffers in tabs
-:map ,sb :tab sball<CR>
-
 " remove menu
 set guioptions-=T
 
-colorscheme railscasts
-
-if has("gui_running")
-  set guifont=Ubuntu\ Mono\ 15
-endif
+colorscheme xoria256
 
 " autoread updated files
 set autoread
-
 set number
 
 " sudo apt-get install ncurses-term
@@ -80,33 +84,8 @@ endif
 
 :nmap ,b :BufExplorer<CR>
 
-" Search file
-:nmap ,f :e **/*
-
 :nmap ,p :NERDTreeFind<CR>
 :nmap ,P :NERDTreeClose<CR>
-
-" No auto reloading
-" If you don't like automatic reloading because it slows Vim down or causes
-" problems you can add the following line to your vimrc script:
-" let g:reload_on_write = 0
-
-" No session autload
-" let g:session_autoload = 'no'
-
-"function! OpenRecent()
-"  for i in split(system("list_new_files"))
-"    execute ":e ".i
-"  endfor
-"endfunction
-":nmap ,r :call OpenRecent()<CR>
-
-
-" Dictionaries
-"autocmd FileType javascript set dictionary=~/.vim/dict/javascript.dict
-"autocmd FileType html set dictionary=~/.vim/dict/html.dict
-"autocmd FileType css set dictionary=~/.vim/dict/css.dict
-"autocmd FileType ruby set dictionary=~/.vim/dict/ruby.dict
 
 if version >= 700
   set history=64
@@ -126,12 +105,6 @@ function ModeChange()
 endfunction
 au BufWritePost * call ModeChange()
 
-" Return to last edit position when opening files (You want this!)
-" autocmd BufReadPost *
-"     \ if line("'\"") > 0 && line("'\"") <= line("$") |
-"     \   exe "normal! g`\"" |
-"     \ endif
-
 
 " Fuzzy file search
 :nmap <C-p> :FZF<CR>
@@ -140,8 +113,6 @@ au BufWritePost * call ModeChange()
 nmap <C-k> :Ack "<cword>"<CR>
 
 set backspace=indent,eol,start
-
-"set ruler
 
 
 " Run a given vim command on the results of alt from a given path.
@@ -186,25 +157,6 @@ endfunction
 :command CtagsUpdate :! ctags --language-force=ruby --fields=+l -f tags -R *
 :command CtagsUpdateAll :! ctags --fields=+l -f tags -R lib -R app -R test -R spec -R vendor -R .bundle
 set complete-=i
-
-
-" FILE BROWSING:
-"
-" Tweaks for browsing
-"let g:netrw_banner=0        " disable annoying banner
-"let g:netrw_browse_split=4  " open in prior window
-" let g:netrw_altv=1          " open splits to the right
-"let g:netrw_liststyle=3     " tree view
-"let g:netrw_list_hide=netrw_gitignore#Hide()
-"let g:netrw_list_hide.=',\(^\|\s\s\)\zs\.\S\+'
-
-
-
-" SNIPPETS:
-nnoremap ,= :-1read $HOME/.vim/my-snippets/print.erb<CR>f= a
-nnoremap ,% :-1read $HOME/.vim/my-snippets/exec.erb<CR>f% a
-
-
 
 " GitGutter config
 let g:gitgutter_signs = 1
