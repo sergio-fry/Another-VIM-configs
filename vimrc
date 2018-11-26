@@ -1,15 +1,29 @@
 call plug#begin()
+Plug 'valloric/youcompleteme'
+Plug 'slim-template/vim-slim'
+Plug 'mechatroner/rainbow_csv'
+Plug 'will133/vim-dirdiff'
+Plug 'janko-m/vim-test'
+Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
+Plug 'junegunn/gv.vim'
 Plug 'mileszs/ack.vim'
 Plug 'jlanzarotta/bufexplorer'
 Plug 'junegunn/fzf'
 Plug 'scrooloose/nerdtree'
-Plug 'honza/vim-snippets'
-Plug 'sirver/ultisnips'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-surround'
 Plug 'bling/vim-airline'
 Plug 'ekalinin/dockerfile.vim'
+Plug 'vim-ruby/vim-ruby'
+"Plug 'vim-scripts/a.vim'
+Plug 'aklt/plantuml-syntax'
+"Plug 'junegunn/goyo.vim'
+"Plug 'amix/vim-zenroom2'
+Plug 'tyru/open-browser.vim'
+Plug 'othree/javascript-libraries-syntax.vim'
+Plug 'udalov/kotlin-vim'
+Plug 'in3d/vim-raml'
 call plug#end()
 
 
@@ -40,6 +54,8 @@ set shiftwidth=2
 set tabstop=2
 set expandtab
 set autoindent
+set softtabstop=2
+
 
 "vertical/horizontal scroll off settings
 set scrolloff=3
@@ -75,12 +91,8 @@ colorscheme xoria256
 set autoread
 set number
 
-" sudo apt-get install ncurses-term
-if $COLORTERM == 'gnome-terminal'
-  set term=gnome-256color
-  set mouse=i
-else    
-endif 
+" http://vim.wikia.com/wiki/Using_the_mouse_for_Vim_in_an_xterm
+set mouse=a
 
 :nmap ,b :BufExplorer<CR>
 
@@ -110,7 +122,7 @@ au BufWritePost * call ModeChange()
 :nmap <C-p> :FZF<CR>
 
 " Find current word in files
-nmap <C-k> :Ack "<cword>"<CR>
+nmap <C-k> :Ack! "<cword>"<CR>
 
 set backspace=indent,eol,start
 
@@ -127,14 +139,17 @@ function! OpenAlternate(path, vim_command)
 endfunction
 
 :command A :call OpenAlternate(expand('%'), ':e')
+:nmap <leader>. :A<CR>
 
 " Run test
-:nmap ,T :VroomRunTestFile<CR>
-:nmap ,t :VroomRunNearestTest<CR>
-:nmap <C-t> :VroomRunLastTest<CR>
-:let g:vroom_use_spring = 1
-:command SpringOn :let g:vroom_use_spring = 1
-:command SpringOff :let g:vroom_use_spring = 0
+" these "Ctrl mappings" work well when Caps Lock is mapped to Ctrl
+nmap <silent> ,t :TestNearest<CR>
+nmap <silent> ,T :TestFile<CR>
+" nmap <silent> t<C-s> :TestSuite<CR>   " t Ctrl+s
+nmap <silent> <C-t> :TestLast<CR>
+" nmap <silent> t<C-g> :TestVisit<CR>   " t Ctrl+g
+
+
 
 
 " TODO
@@ -166,3 +181,25 @@ nmap ]g <Plug>GitGutterNextHunk
 nmap [g <Plug>GitGutterPrevHunk
 
 
+
+let g:openbrowser_search_engines = {
+      \   'jira': 'https://devprg.atlassian.net/browse/{query}',
+      \}
+
+
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
+" let g:ackpreview = 1 " live preview
+" let g:ack_use_dispatch = 1 " speedup
+
+
+" Russian
+"set keymap=russian-jcukenwin
+set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz
+set iminsert=0
+set imsearch=0
+highlight lCursor guifg=NONE guibg=Cyan
+
+nmap gc :Commentary<CR>
+nmap пс :Commentary<CR>
