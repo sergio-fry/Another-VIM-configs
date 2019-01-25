@@ -1,21 +1,48 @@
 call plug#begin()
-Plug 'valloric/youcompleteme'
+Plug 'chr4/nginx.vim'
+Plug 'vim-scripts/matchit.zip'
+Plug 'valloric/matchtagalways'
+
+
+Plug 'sirver/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'jvanja/vim-bootstrap4-snippets'
+
+
+Plug 'tmux-plugins/vim-tmux-focus-events'
+Plug 'morhetz/gruvbox'
+Plug 'craigemery/vim-autotag'
+Plug 'tpope/vim-cucumber'
+Plug 'mxw/vim-jsx'
+"Plug 'python-mode/python-mode', { 'branch': 'develop' }
+" Plug 'valloric/youcompleteme'
 Plug 'slim-template/vim-slim'
 Plug 'mechatroner/rainbow_csv'
 Plug 'will133/vim-dirdiff'
 Plug 'janko-m/vim-test'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
+Plug 'shumphrey/fugitive-gitlab.vim'
 Plug 'junegunn/gv.vim'
 Plug 'mileszs/ack.vim'
 Plug 'jlanzarotta/bufexplorer'
+
 Plug 'junegunn/fzf'
+"Plug 'ctrlpvim/ctrlp.vim'
+
 Plug 'scrooloose/nerdtree'
+Plug 'kana/vim-textobj-user'
+
+" Ruby
+Plug 'vim-ruby/vim-ruby'
+Plug 'tpope/vim-rails'
 Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-bundler'
+Plug 'nelstrom/vim-textobj-rubyblock'
+
 Plug 'tpope/vim-surround'
 Plug 'bling/vim-airline'
 Plug 'ekalinin/dockerfile.vim'
-Plug 'vim-ruby/vim-ruby'
 "Plug 'vim-scripts/a.vim'
 Plug 'aklt/plantuml-syntax'
 "Plug 'junegunn/goyo.vim'
@@ -25,6 +52,16 @@ Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'udalov/kotlin-vim'
 Plug 'in3d/vim-raml'
 call plug#end()
+
+" brew tap uptech/homebrew-oss
+" brew install uptech/oss/alt
+
+" nnoremap z] :Ycm GoTo<CR>
+
+if has('python3')
+  silent! python3 1
+endif
+
 
 
 set path+=**
@@ -85,7 +122,8 @@ set hidden " do not lose undo history when switching
 " remove menu
 set guioptions-=T
 
-colorscheme xoria256
+"colorscheme xoria256
+colorscheme gruvbox
 
 " autoread updated files
 set autoread
@@ -142,6 +180,17 @@ endfunction
 :nmap <leader>. :A<CR>
 
 " Run test
+let test#ruby#bundle_exec = 1
+let test#ruby#use_spring_binstub = 1
+
+" let test#ruby#rspec = 'bundle exec rspec'
+" let test#ruby#cucumber#executable = 'bundle exec cucumber'
+"
+" function! EnableSpring()
+"   let test#ruby#rspec = 'bundle exec spring rspec'
+"   let test#ruby#cucumber#executable = 'bundle exec spring cucumber'
+" endfunction
+
 " these "Ctrl mappings" work well when Caps Lock is mapped to Ctrl
 nmap <silent> ,t :TestNearest<CR>
 nmap <silent> ,T :TestFile<CR>
@@ -203,3 +252,14 @@ highlight lCursor guifg=NONE guibg=Cyan
 
 nmap gc :Commentary<CR>
 nmap пс :Commentary<CR>
+
+
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
+
+let g:fugitive_gitlab_domains = ['https://gitlab.com', 'https://git.stdev.ru']
