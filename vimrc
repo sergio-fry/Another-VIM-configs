@@ -27,7 +27,9 @@ Plug 'junegunn/gv.vim'
 Plug 'mileszs/ack.vim'
 Plug 'jlanzarotta/bufexplorer'
 
-Plug 'junegunn/fzf'
+"Plug 'junegunn/fzf'
+Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf.vim'
 "Plug 'ctrlpvim/ctrlp.vim'
 
 Plug 'scrooloose/nerdtree'
@@ -133,6 +135,7 @@ set number
 set mouse=a
 
 :nmap ,b :BufExplorer<CR>
+:nmap <C-b> :Buffers<CR>
 
 :nmap ,p :NERDTreeFind<CR>
 :nmap ,P :NERDTreeClose<CR>
