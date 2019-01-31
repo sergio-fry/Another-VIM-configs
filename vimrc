@@ -1,4 +1,5 @@
 call plug#begin()
+Plug 'w0rp/ale'
 Plug 'chr4/nginx.vim'
 Plug 'vim-scripts/matchit.zip'
 Plug 'valloric/matchtagalways'
@@ -23,6 +24,7 @@ Plug 'janko-m/vim-test'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'shumphrey/fugitive-gitlab.vim'
+Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/gv.vim'
 Plug 'mileszs/ack.vim'
 Plug 'jlanzarotta/bufexplorer'
@@ -63,7 +65,6 @@ call plug#end()
 if has('python3')
   silent! python3 1
 endif
-
 
 
 set path+=**
@@ -227,7 +228,9 @@ set complete-=i
 
 " GitGutter config
 let g:gitgutter_signs = 1
-let g:gitgutter_sign_column_always = 1
+"let g:gitgutter_sign_column_always = 1
+set signcolumn=yes
+
 let g:gitgutter_highlight_lines = 0
 nmap ]g <Plug>GitGutterNextHunk
 nmap [g <Plug>GitGutterPrevHunk
