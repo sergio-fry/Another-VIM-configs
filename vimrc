@@ -1,5 +1,7 @@
 call plug#begin()
 Plug 'isRuslan/vim-es6'
+Plug 'briancollins/vim-jst'
+Plug 'noprompt/vim-yardoc'
 
 Plug 'w0rp/ale'
 Plug 'chr4/nginx.vim'
@@ -51,7 +53,7 @@ Plug 'bling/vim-airline'
 Plug 'ekalinin/dockerfile.vim'
 "Plug 'vim-scripts/a.vim'
 Plug 'aklt/plantuml-syntax'
-"Plug 'junegunn/goyo.vim'
+Plug 'junegunn/goyo.vim'
 "Plug 'amix/vim-zenroom2'
 Plug 'tyru/open-browser.vim'
 Plug 'othree/javascript-libraries-syntax.vim'
@@ -227,6 +229,7 @@ nmap <silent> <C-t> :TestLast<CR>
 " - :cn and :cp to navigate forward and back
 
 " set tags=./tags,tags
+" let g:autotagTagsFile="tags"
 :command CtagsUpdate :! ctags --language-force=ruby --fields=+l -f tags -R *
 :command CtagsUpdateAll :! ctags --fields=+l -f tags -R lib -R app -R test -R spec -R vendor -R .bundle
 set complete-=i
