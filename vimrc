@@ -1,4 +1,6 @@
 call plug#begin()
+Plug 'isRuslan/vim-es6'
+
 Plug 'w0rp/ale'
 Plug 'chr4/nginx.vim'
 Plug 'vim-scripts/matchit.zip'
@@ -12,7 +14,7 @@ Plug 'jvanja/vim-bootstrap4-snippets'
 
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'morhetz/gruvbox'
-Plug 'craigemery/vim-autotag'
+" Plug 'craigemery/vim-autotag'
 Plug 'tpope/vim-cucumber'
 Plug 'mxw/vim-jsx'
 "Plug 'python-mode/python-mode', { 'branch': 'develop' }
@@ -41,7 +43,7 @@ Plug 'kana/vim-textobj-user'
 Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-endwise'
-Plug 'tpope/vim-bundler'
+" Plug 'tpope/vim-bundler'
 Plug 'nelstrom/vim-textobj-rubyblock'
 
 Plug 'tpope/vim-surround'
@@ -55,7 +57,10 @@ Plug 'tyru/open-browser.vim'
 Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'udalov/kotlin-vim'
 Plug 'in3d/vim-raml'
+Plug 'tpope/vim-sensible'
 call plug#end()
+set lazyredraw
+set ttyfast
 
 " brew tap uptech/homebrew-oss
 " brew install uptech/oss/alt
