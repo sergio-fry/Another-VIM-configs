@@ -281,3 +281,5 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:UltiSnipsEditSplit="vertical"
 
 let g:fugitive_gitlab_domains = ['https://gitlab.com', 'https://git.stdev.ru']
+
+autocmd BufNewFile,BufRead *.es6 set syntax=javascript
