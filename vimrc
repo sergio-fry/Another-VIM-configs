@@ -134,9 +134,10 @@ set hidden " do not lose undo history when switching
 " remove menu
 set guioptions-=T
 
-colorscheme xoria256
+" colorscheme xoria256
 " colorscheme gruvbox
 " colorscheme github
+colorscheme desert256
 
 " autoread updated files
 set autoread
