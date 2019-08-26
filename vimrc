@@ -137,7 +137,8 @@ set guioptions-=T
 " colorscheme xoria256
 " colorscheme gruvbox
 " colorscheme github
-colorscheme desert256
+" colorscheme desert256
+colorscheme distinguished
 
 " autoread updated files
 set autoread
