@@ -7,8 +7,9 @@ My VIM configs
 $ git clone https://github.com/sergio-fry/Another-VIM-configs.git ~/.vim
 $ ln -s $HOME/.vim/vimrc ~/.vimrc
 $ cd ~/.vim
-$ git submodule init
-$ git submodule update
+$ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+$ vim +PlugInstall
 ```
 
 ## TODO
