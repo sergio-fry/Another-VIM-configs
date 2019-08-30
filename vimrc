@@ -152,6 +152,7 @@ set mouse=a
 
 :nmap ,p :NERDTreeFind<CR>
 :nmap ,P :NERDTreeClose<CR>
+:let NERDTreeQuitOnOpen=1
 
 if version >= 700
   set history=64
