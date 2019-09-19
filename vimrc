@@ -49,7 +49,7 @@ Plug 'kana/vim-textobj-user'
 Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-endwise'
-" Plug 'tpope/vim-bundler'
+Plug 'tpope/vim-bundler'
 Plug 'nelstrom/vim-textobj-rubyblock'
 
 Plug 'tpope/vim-surround'
@@ -62,7 +62,13 @@ Plug 'amix/vim-zenroom2'
 " Plug 'tyru/open-browser.vim'
 Plug 'udalov/kotlin-vim'
 Plug 'in3d/vim-raml'
+
+" Plug 'autozimu/LanguageClient-neovim', {
+    " \ 'branch': 'next',
+    " \ 'do': 'bash install.sh',
+    " \ }
 call plug#end()
+
 set lazyredraw
 set ttyfast
 
@@ -282,6 +288,28 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
 
-let g:fugitive_gitlab_domains = ['https://gitlab.com', 'https://git.stdev.ru']
+let g:fugitive_gitlab_domains = ['https://gitlab.com', 'https://gitlab.infra.b-pl.pro']
 
 autocmd BufNewFile,BufRead *.es6 set syntax=javascript
+
+" Some aliases for ESC
+inoremap jj <esc>
+inoremap jk <esc>
+inoremap § <esc>
+
+" Do not reset cursor position on each buffer switching
+set nostartofline
+
+
+" let g:LanguageClient_serverCommands = {
+    " \ 'ruby': ['~/.rvm/gems/default/bin/solargraph', 'stdio'],
+    " \ }
+
+" nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+" let g:LanguageClient_loggingLevel = 'INFO'
+" let g:LanguageClient_virtualTextPrefix = ''
+" let g:LanguageClient_loggingFile =  expand('~/.vim/LanguageClient.log')
+" let g:LanguageClient_serverStderr = expand('~/.vim/LanguageServer.log')
+
+" Rubocop
+nmap rr :! rubocop -a %<CR>
