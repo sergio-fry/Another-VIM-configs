@@ -5,7 +5,7 @@ Plug 'briancollins/vim-jst'
 Plug 'noprompt/vim-yardoc'
 Plug 'othree/javascript-libraries-syntax.vim'
 
-Plug 'w0rp/ale'
+" Plug 'w0rp/ale'
 Plug 'chr4/nginx.vim'
 Plug 'vim-scripts/matchit.zip'
 " Plug 'valloric/matchtagalways'
@@ -158,7 +158,7 @@ set mouse=a
 
 :nmap ,p :NERDTreeFind<CR>
 :nmap ,P :NERDTreeClose<CR>
-:let NERDTreeQuitOnOpen=1
+" :let NERDTreeQuitOnOpen=1
 
 if version >= 700
   set history=64
@@ -312,4 +312,4 @@ set nostartofline
 " let g:LanguageClient_serverStderr = expand('~/.vim/LanguageServer.log')
 
 " Rubocop
-nmap rr :! rubocop -a %<CR>
+nmap rr :! rubocop -a %<CR><CR>
