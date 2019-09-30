@@ -5,7 +5,7 @@ Plug 'briancollins/vim-jst'
 Plug 'noprompt/vim-yardoc'
 Plug 'othree/javascript-libraries-syntax.vim'
 
-" Plug 'w0rp/ale'
+Plug 'w0rp/ale'
 Plug 'chr4/nginx.vim'
 Plug 'vim-scripts/matchit.zip'
 " Plug 'valloric/matchtagalways'
@@ -313,3 +313,11 @@ set nostartofline
 
 " Rubocop
 nmap rr :! rubocop -a %<CR><CR>
+
+set exrc
+set secure
+
+let g:ale_linters = {'ruby': ['standardrb']}
+let g:ale_fixers = {'ruby': ['standardrb']}
+" let g:ale_fix_on_save = 1
+let g:ruby_indent_assignment_style = 'variable'
