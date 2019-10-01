@@ -312,7 +312,7 @@ set nostartofline
 " let g:LanguageClient_serverStderr = expand('~/.vim/LanguageServer.log')
 
 " Rubocop
-nmap rr :! rubocop -a %<CR><CR>
+nmap rr :ALEFix<CR>
 
 set exrc
 set secure
