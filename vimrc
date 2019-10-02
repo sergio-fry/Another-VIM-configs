@@ -263,7 +263,7 @@ let g:openbrowser_search_engines = {
 
 
 if executable('ag')
-  let g:ackprg = 'ag --vimgrep'
+  let g:ackprg = 'ag --vimgrep --ignore-dir node_modules/'
 endif
 " let g:ackpreview = 1 " live preview
 " let g:ack_use_dispatch = 1 " speedup
@@ -317,7 +317,13 @@ nmap rr :ALEFix<CR>
 set exrc
 set secure
 
+
+" ALE Lint / Fix
+let g:ale_fix_on_save = 1
+
 let g:ale_linters = {'ruby': ['standardrb']}
 let g:ale_fixers = {'ruby': ['standardrb']}
-let g:ale_fix_on_save = 1
 let g:ruby_indent_assignment_style = 'variable'
+
+let g:ale_linters = { 'javascript': ['standard'] }
+let g:ale_fixers = {'javascript': ['standard']}
