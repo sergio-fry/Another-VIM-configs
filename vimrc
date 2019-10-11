@@ -299,9 +299,9 @@ let g:fugitive_gitlab_domains = ['https://gitlab.com', 'https://gitlab.infra.b-p
 autocmd BufNewFile,BufRead *.es6 set syntax=javascript
 
 " Some aliases for ESC
-inoremap jj <esc>
-inoremap jk <esc>
-inoremap § <esc>
+" inoremap jj <esc>
+" inoremap jk <esc>
+" inoremap § <esc>
 
 " Do not reset cursor position on each buffer switching
 set nostartofline
