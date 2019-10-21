@@ -212,6 +212,9 @@ endfunction
 let test#ruby#bundle_exec = 1
 let test#ruby#use_spring_binstub = 1
 
+:command SpringOff let test#ruby#use_spring_binstub = 0
+:command SpringOn let test#ruby#use_spring_binstub = 1
+
 " let test#ruby#rspec = 'bundle exec rspec'
 " let test#ruby#cucumber#executable = 'bundle exec cucumber'
 "
@@ -248,8 +251,8 @@ nmap <silent> <C-t> :TestLast<CR>
 
 " set tags=./tags,tags
 " let g:autotagTagsFile="tags"
-:command CtagsUpdate :! ctags --language-force=ruby --fields=+l -f tags -R *
-:command CtagsUpdateAll :! ctags --fields=+l -f tags -R lib -R app -R test -R spec -R vendor -R .bundle
+" :command CtagsUpdate :! ctags --language-force=ruby --fields=+l -f tags -R *
+" :command CtagsUpdateAll :! ctags --fields=+l -f tags -R lib -R app -R test -R spec -R vendor -R .bundle
 " set complete-=i
 
 " GitGutter config
@@ -268,9 +271,9 @@ let g:openbrowser_search_engines = {
       \}
 
 
-if executable('ag')
-  let g:ackprg = 'ag --vimgrep --ignore-dir node_modules/'
-endif
+" if executable('ag')
+  " let g:ackprg = 'ag --vimgrep --ignore-dir node_modules/  --ignore-dir tmp/'
+" endif
 " let g:ackpreview = 1 " live preview
 " let g:ack_use_dispatch = 1 " speedup
 
@@ -366,7 +369,9 @@ function! s:check_back_space() abort
 endfunction
 
 " Use <c-space> to trigger completion.
-inoremap <silent><expr> <c-space> coc#refresh()
+" inoremap <silent><expr> <c-space> coc#refresh()
+inoremap <silent><expr> <c-p> coc#refresh()
+inoremap <silent><expr> <c-n> coc#refresh()
 
 " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
 " Coc only does snippet and additional edit on confirm.
@@ -381,8 +386,9 @@ nmap <silent> ]g <Plug>(coc-diagnostic-next)
 " Remap keys for gotos
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
+map <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+nmap <silent> <c-]> <Plug>(coc-definition)
 
 " Use K to show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>
@@ -400,6 +406,7 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Remap for rename current word
 nmap <leader>rn <Plug>(coc-rename)
+nmap ren <Plug>(coc-rename)
 
 " Remap for format selected region
 xmap <leader>f  <Plug>(coc-format-selected)
