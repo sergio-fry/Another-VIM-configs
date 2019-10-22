@@ -3,7 +3,7 @@ source ~/.vim/config/base.vim
 source ~/.vim/config/coc.vim
 source ~/.vim/config/helpers.vim
 
-:let mapleader = ","
+:let mapleader = "\<tab>"
 
 " Format the status line
 set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l\ \ Column:\ %c
@@ -127,8 +127,8 @@ let g:gitgutter_signs = 1
 "let g:gitgutter_sign_column_always = 1
 
 let g:gitgutter_highlight_lines = 0
-nmap ]g <Plug>GitGutterNextHunk
-nmap [g <Plug>GitGutterPrevHunk
+nmap ]g <Plug>(GitGutterNextHunk)
+nmap [g <Plug>(GitGutterPrevHunk)
 
 
 
