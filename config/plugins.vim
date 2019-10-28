@@ -1,5 +1,6 @@
 call plug#begin()
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'plasticboy/vim-markdown'
 " :CocInstall coc-solargraph
 " Plug 'neoclide/coc-solargraph'
 

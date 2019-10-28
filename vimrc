@@ -3,7 +3,7 @@ source ~/.vim/config/base.vim
 source ~/.vim/config/coc.vim
 source ~/.vim/config/helpers.vim
 
-:let mapleader = "\<tab>"
+:let mapleader = "."
 
 " Format the status line
 set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l\ \ Column:\ %c
@@ -62,11 +62,6 @@ au BufWritePost * call ModeChange()
 
 " Fuzzy file search
 :nmap <C-p> :FZF<CR>
-
-" Find current word in files
-nmap <C-k> :Ack! "<cword>"<CR>
-
-" TODO: install Grep
 
 
 " Run a given vim command on the results of alt from a given path.
@@ -130,6 +125,7 @@ let g:gitgutter_highlight_lines = 0
 nmap ]g <Plug>(GitGutterNextHunk)
 nmap [g <Plug>(GitGutterPrevHunk)
 
+nmap <c-n> :cnext<CR>
 
 
 " let g:openbrowser_search_engines = {
@@ -137,11 +133,15 @@ nmap [g <Plug>(GitGutterPrevHunk)
       " \}
 
 
-" if executable('ag')
+if executable('ag')
   " let g:ackprg = 'ag --vimgrep --ignore-dir node_modules/  --ignore-dir tmp/'
-" endif
+  let g:ackprg = 'ag --vimgrep'
+endif
 " let g:ackpreview = 1 " live preview
 " let g:ack_use_dispatch = 1 " speedup
+
+" Find current word in files
+nmap <C-k> :Ack! "<cword>"<CR>
 
 
 " Russian
@@ -157,8 +157,8 @@ nmap gc :Commentary<CR>
 
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<leader-x>"
-let g:UltiSnipsJumpBackwardTrigger="<leader-z>"
+let g:UltiSnipsJumpBackwardTrigger="<c-h>"
+let g:UltiSnipsJumpForwardTrigger="<c-l>"
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
@@ -187,3 +187,5 @@ let g:ale_fix_on_save = 0
 " let g:ruby_indent_assignment_style = 'variable'
 
 
+
+let g:vim_markdown_folding_disabled = 1
