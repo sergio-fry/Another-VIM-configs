@@ -84,6 +84,7 @@ let test#ruby#use_spring_binstub = 1
 
 :command SpringOff let test#ruby#use_spring_binstub = 0
 :command SpringOn let test#ruby#use_spring_binstub = 1
+let g:test#java#runner = 'gradletest'
 
 " these "Ctrl mappings" work well when Caps Lock is mapped to Ctrl
 nmap <silent> ,t :TestNearest<CR>
