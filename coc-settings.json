@@ -1,4 +1,4 @@
 {
-  "suggest.autoTrigger": "trigger",
-  "suggest.triggerCompletionWait": 50
+  "suggest.autoTrigger": "none",
+  "suggest.triggerCompletionWait": 300
 }
