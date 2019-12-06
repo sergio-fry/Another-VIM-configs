@@ -33,8 +33,9 @@ endfunction
 
 " Use <c-space> to trigger completion.
 " inoremap <silent><expr> <c-space> coc#refresh()
-inoremap <silent><expr> <c-p> coc#refresh()
-inoremap <silent><expr> <c-n> coc#refresh()
+" inoremap <silent><expr> <c-p> coc#refresh()
+" inoremap <silent><expr> <c-n> coc#refresh()
+inoremap <silent><expr> <c-h> coc#refresh()
 
 " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
 " Coc only does snippet and additional edit on confirm.
