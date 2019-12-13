@@ -1,10 +1,10 @@
 call plug#begin()
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'tpope/vim-sensible'
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'plasticboy/vim-markdown'
 " :CocInstall coc-solargraph
 " Plug 'neoclide/coc-solargraph'
 
-Plug 'tpope/vim-sensible'
 Plug 'isRuslan/vim-es6'
 " Plug 'briancollins/vim-jst'
 " Plug 'noprompt/vim-yardoc'
@@ -74,6 +74,5 @@ Plug 'ekalinin/dockerfile.vim'
     " \ 'do': 'bash install.sh',
     " \ }
 
-Plug 'tybenz/vimdeck'
 call plug#end()
 

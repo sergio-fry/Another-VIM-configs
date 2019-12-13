@@ -1,6 +1,6 @@
 source ~/.vim/config/plugins.vim
 source ~/.vim/config/base.vim
-source ~/.vim/config/coc.vim
+" source ~/.vim/config/coc.vim
 source ~/.vim/config/helpers.vim
 
 :let mapleader = "."
