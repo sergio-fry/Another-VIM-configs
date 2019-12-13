@@ -74,5 +74,6 @@ Plug 'ekalinin/dockerfile.vim'
     " \ 'do': 'bash install.sh',
     " \ }
 
+Plug 'tybenz/vimdeck'
 call plug#end()
 
