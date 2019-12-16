@@ -190,3 +190,13 @@ let g:ale_fix_on_save = 0
 
 
 let g:vim_markdown_folding_disabled = 1
+
+
+" magic speed up
+" https://github.com/joshukraine/dotfiles/blob/master/vim-performance.md
+"
+" Vim includes two regexp engines:
+
+" An old, backtracking engine that supports everything.
+" A new, NFA engine that works much faster on some patterns, possibly slower on some patterns.
+set re=1
