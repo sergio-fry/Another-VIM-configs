@@ -55,7 +55,7 @@ Plug 'kana/vim-textobj-user'
 Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-endwise'
-" Plug 'tpope/vim-bundler'
+Plug 'tpope/vim-bundler'
 Plug 'nelstrom/vim-textobj-rubyblock'
 
 Plug 'tpope/vim-surround'
@@ -73,6 +73,8 @@ Plug 'ekalinin/dockerfile.vim'
     " \ 'branch': 'next',
     " \ 'do': 'bash install.sh',
     " \ }
+
+Plug 'evindor/vim-rusmode'
 
 call plug#end()
 
