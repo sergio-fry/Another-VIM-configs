@@ -74,7 +74,7 @@ Plug 'ekalinin/dockerfile.vim'
     " \ 'do': 'bash install.sh',
     " \ }
 
-Plug 'evindor/vim-rusmode'
+" Plug 'evindor/vim-rusmode'
 
 call plug#end()
 
