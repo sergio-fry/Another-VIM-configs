@@ -86,7 +86,7 @@ let g:test#java#runner = 'gradletest'
 " these "Ctrl mappings" work well when Caps Lock is mapped to Ctrl
 nmap <silent> ,t :TestNearest<CR>
 nmap <silent> ,T :TestFile<CR>
-" nmap <silent> t<C-s> :TestSuite<CR>   " t Ctrl+s
+nmap <silent> ts :TestSuite<CR>
 nmap <silent> <C-t> :TestLast<CR>
 " nmap <silent> t<C-g> :TestVisit<CR>   " t Ctrl+g
 
@@ -111,8 +111,8 @@ nmap <silent> <C-t> :TestLast<CR>
 
 " set tags=./tags,tags
 " let g:autotagTagsFile="tags"
-:command CtagsUpdate :! ctags --language-force=ruby --fields=+l -f tags -R *
-:command CtagsUpdateAll :! ctags --fields=+l -f tags -R lib -R app -R test -R spec -R vendor -R .bundle
+" :command CtagsUpdate :! ctags --language-force=ruby --fields=+l -f tags -R *
+" :command CtagsUpdateAll :! ctags --fields=+l -f tags -R lib -R app -R test -R spec -R vendor -R .bundle
 " set complete-=i
 set notagbsearch " avoid E432: Tags file not sorted Error
 

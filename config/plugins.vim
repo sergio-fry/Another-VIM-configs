@@ -1,6 +1,6 @@
 call plug#begin()
 Plug 'tpope/vim-sensible'
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'plasticboy/vim-markdown'
 " :CocInstall coc-solargraph
 " Plug 'neoclide/coc-solargraph'
