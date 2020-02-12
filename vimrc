@@ -1,6 +1,6 @@
 source ~/.vim/config/plugins.vim
 source ~/.vim/config/base.vim
-" source ~/.vim/config/coc.vim
+source ~/.vim/config/fzf.vim
 source ~/.vim/config/helpers.vim
 
 :let mapleader = "."
@@ -59,9 +59,6 @@ function ModeChange()
 endfunction
 au BufWritePost * call ModeChange()
 
-
-" Fuzzy file search
-:nmap <C-p> :FZF<CR>
 
 
 " Run a given vim command on the results of alt from a given path.
@@ -201,3 +198,5 @@ let g:vim_markdown_folding_disabled = 1
 " An old, backtracking engine that supports everything.
 " A new, NFA engine that works much faster on some patterns, possibly slower on some patterns.
 set re=1
+
+
