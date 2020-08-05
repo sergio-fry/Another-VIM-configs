@@ -2,6 +2,7 @@ source ~/.vim/config/plugins.vim
 source ~/.vim/config/base.vim
 source ~/.vim/config/fzf.vim
 source ~/.vim/config/helpers.vim
+source ~/.vim/config/space.vim
 
 :let mapleader = "."
 
@@ -27,10 +28,6 @@ nmap ,n :nohlsearch<cr>
 " remove menu
 set guioptions-=T
 
-" colorscheme xoria256
-" colorscheme gruvbox
-" colorscheme github
-" colorscheme desert256
 colorscheme distinguished
 set background=dark
 
@@ -76,20 +73,18 @@ endfunction
 :nmap <leader>. :A<CR>
 
 " Run test
-let test#ruby#bundle_exec = 1
-let test#ruby#use_spring_binstub = 1
+" let test#ruby#bundle_exec = 1
+" let test#ruby#use_spring_binstub = 1
 
 :command SpringOff let test#ruby#use_spring_binstub = 0
 :command SpringOn let test#ruby#use_spring_binstub = 1
 let g:test#java#runner = 'gradletest'
 
 " these "Ctrl mappings" work well when Caps Lock is mapped to Ctrl
-nmap <silent> ,t :TestNearest<CR>
-nmap <silent> ,T :TestFile<CR>
-nmap <silent> ts :TestSuite<CR>
+" nmap <silent> ,t :TestNearest<CR>
+" nmap <silent> ,T :TestFile<CR>
+" nmap <silent> ts :TestSuite<CR>
 nmap <silent> <C-t> :TestLast<CR>
-" nmap <silent> t<C-g> :TestVisit<CR>   " t Ctrl+g
-
 
 
 
@@ -179,8 +174,8 @@ nmap rr :ALEFix<CR>
 
 
 " ALE Lint / Fix
-let g:ale_linters = {'ruby': ['standardrb'], 'javascript': ['standard']}
-let g:ale_fixers = {'ruby': ['standardrb'], 'javascript': ['standard']}
+let g:ale_linters = {'ruby': ['standardrb'], 'javascript': ['standard'], 'json': ['jsonlint']}
+let g:ale_fixers = {'ruby': ['standardrb'], 'javascript': ['standard'], 'json': ['jq']}
 let g:ale_fix_on_save = 0
 
 " let g:ruby_indent_assignment_style = 'variable'

@@ -11,7 +11,7 @@ Plug 'isRuslan/vim-es6'
 " Plug 'othree/javascript-libraries-syntax.vim'
 
 Plug 'w0rp/ale'
-Plug 'chr4/nginx.vim'
+" Plug 'chr4/nginx.vim'
 Plug 'vim-scripts/matchit.zip'
 " Plug 'valloric/matchtagalways'
 
@@ -63,7 +63,7 @@ Plug 'tpope/vim-surround'
 Plug 'ekalinin/dockerfile.vim'
 "Plug 'vim-scripts/a.vim'
 " Plug 'aklt/plantuml-syntax'
-" Plug 'junegunn/goyo.vim'
+Plug 'junegunn/goyo.vim'
 " Plug 'amix/vim-zenroom2'
 " Plug 'tyru/open-browser.vim'
 " Plug 'udalov/kotlin-vim'
@@ -76,5 +76,7 @@ Plug 'ekalinin/dockerfile.vim'
 
 " Plug 'evindor/vim-rusmode'
 
+
+Plug 'mustache/vim-mustache-handlebars'
 call plug#end()
 
