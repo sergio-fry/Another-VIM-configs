@@ -174,8 +174,8 @@ nmap rr :ALEFix<CR>
 
 
 " ALE Lint / Fix
-let g:ale_linters = {'ruby': ['standardrb'], 'javascript': ['standard'], 'json': ['jsonlint']}
-let g:ale_fixers = {'ruby': ['standardrb'], 'javascript': ['standard'], 'json': ['jq']}
+let g:ale_linters = {'ruby': [], 'javascript': ['standard'], 'json': ['jsonlint']}
+let g:ale_fixers = {'ruby': [], 'javascript': ['standard'], 'json': ['jq']}
 let g:ale_fix_on_save = 0
 
 " let g:ruby_indent_assignment_style = 'variable'

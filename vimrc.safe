@@ -1,0 +1,117 @@
+call plug#begin()
+  Plug 'vim-ruby/vim-ruby'
+  Plug 'vim-scripts/matchit.zip'
+  Plug 'sirver/ultisnips'
+  Plug 'honza/vim-snippets'
+  Plug 'tmux-plugins/vim-tmux-focus-events'
+  Plug 'tpope/vim-commentary'
+  Plug 'mileszs/ack.vim'
+  Plug 'jlanzarotta/bufexplorer'
+  Plug '/usr/local/opt/fzf'
+  Plug 'junegunn/fzf.vim'
+  Plug 'scrooloose/nerdtree'
+  Plug 'tpope/vim-endwise'
+  Plug 'tpope/vim-surround'
+call plug#end()
+
+source ~/.vim/config/base.vim
+source ~/.vim/config/fzf.vim
+source ~/.vim/config/space.vim
+
+set nowrap
+
+:let mapleader = "."
+
+" Format the status line
+" set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l\ \ Column:\ %c
+
+" Ignore compiled files
+set wildignore=*.o,*~,*.pyc
+if has("win16") || has("win32")
+  set wildignore+=.git\*,.hg\*,.svn\*
+else
+  set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store
+endif
+
+
+
+nmap ,n :nohlsearch<cr>
+
+"Save file after focus lost
+:au FocusLost * :wa
+:au BufLeave * :wa
+
+" remove menu
+set guioptions-=T
+
+" colorscheme distinguished
+set background=dark
+
+:nmap ,b :BufExplorer<CR>
+:nmap <C-b> :Buffers<CR>
+
+:nmap ,p :NERDTreeFind<CR>
+:nmap ,P :NERDTreeClose<CR>
+" :let NERDTreeQuitOnOpen=1
+
+if version >= 700
+  set history=64
+  set undolevels=128
+  set undodir=~/.vim_undo/
+  set undofile
+  set undolevels=1000
+  set undoreload=10000
+endif
+
+function ModeChange()
+  if getline(1) =~ "^#!"
+    if getline(1) =~ "bin/"
+      silent !chmod a+x <afile>
+    endif
+  endif
+endfunction
+au BufWritePost * call ModeChange()
+
+
+
+" Run a given vim command on the results of alt from a given path.
+" See usage below.
+function! OpenAlternate(path, vim_command)
+  let l:alternate = system("alt " . a:path)
+  if empty(l:alternate)
+    echo "No alternate file for " . a:path . " exists!"
+  else
+    exec a:vim_command . " " . l:alternate
+  endif
+endfunction
+
+:command A :call OpenAlternate(expand('%'), ':e')
+:nmap <leader>. :A<CR>
+
+nmap <c-n> :cnext<CR>
+
+:command SpringOff let test#ruby#use_spring_binstub = 0
+:command SpringOn let test#ruby#use_spring_binstub = 1
+
+
+
+if executable('ag')
+  " let g:ackprg = 'ag --vimgrep --ignore-dir node_modules/  --ignore-dir tmp/'
+  let g:ackprg = 'ag --vimgrep'
+endif
+" let g:ackpreview = 1 " live preview
+" let g:ack_use_dispatch = 1 " speedup
+
+" Find current word in files
+nmap <C-k> :Ack! "<cword>"<CR>
+
+
+
+" An old, backtracking engine that supports everything.
+" A new, NFA engine that works much faster on some patterns, possibly slower on some patterns.
+set re=1
+
+:syntax off
+
+" To fix ^G symbol in a NERDTree. see https://github.com/preservim/nerdtree/issues/928
+let g:NERDTreeNodeDelimiter = "\u00a0"
