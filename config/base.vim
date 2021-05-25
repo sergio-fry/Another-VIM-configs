@@ -95,3 +95,5 @@ set hidden " do not lose undo history when switching
 
 " http://vim.wikia.com/wiki/Using_the_mouse_for_Vim_in_an_xterm
 set mouse=a
+
+set cursorline
