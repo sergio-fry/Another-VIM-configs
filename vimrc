@@ -3,6 +3,7 @@ source ~/.vim/config/base.vim
 source ~/.vim/config/fzf.vim
 source ~/.vim/config/helpers.vim
 source ~/.vim/config/space.vim
+source ~/.vim/config/coc.vim
 
 :let mapleader = "."
 
