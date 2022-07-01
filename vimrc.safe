@@ -90,9 +90,6 @@ endfunction
 
 nmap <c-n> :cnext<CR>
 
-:command SpringOff let test#ruby#use_spring_binstub = 0
-:command SpringOn let test#ruby#use_spring_binstub = 1
-
 
 
 if executable('ag')

@@ -29,9 +29,9 @@ set tm=500
 set t_Co=256
 
 " no swap files
-"set nobackup
-"set nowritebackup
 set noswapfile
+set nobackup
+set nowritebackup
 
 "Use Vim settings, rather then Vi settings (much better!).
 "This must be first, because it changes other options as a side effect.

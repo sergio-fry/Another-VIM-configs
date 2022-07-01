@@ -32,11 +32,11 @@ set guioptions-=T
 colorscheme distinguished
 set background=dark
 
-:nmap ,b :BufExplorer<CR>
-:nmap <C-b> :Buffers<CR>
+" :nmap ,b :BufExplorer<CR>
+" :nmap <C-b> :Buffers<CR>
 
-:nmap ,p :NERDTreeFind<CR>
-:nmap ,P :NERDTreeClose<CR>
+" :nmap ,p :NERDTreeFind<CR>
+" :nmap ,P :NERDTreeClose<CR>
 " :let NERDTreeQuitOnOpen=1
 
 if version >= 700
@@ -79,13 +79,13 @@ endfunction
 
 :command SpringOff let test#ruby#use_spring_binstub = 0
 :command SpringOn let test#ruby#use_spring_binstub = 1
-let g:test#java#runner = 'gradletest'
+" let g:test#java#runner = 'gradletest'
 
 " these "Ctrl mappings" work well when Caps Lock is mapped to Ctrl
 " nmap <silent> ,t :TestNearest<CR>
 " nmap <silent> ,T :TestFile<CR>
 " nmap <silent> ts :TestSuite<CR>
-nmap <silent> <C-t> :TestLast<CR>
+" nmap <silent> <C-t> :TestLast<CR>
 
 
 
