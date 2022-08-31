@@ -4,6 +4,7 @@ source ~/.vim/config/fzf.vim
 source ~/.vim/config/helpers.vim
 source ~/.vim/config/space.vim
 source ~/.vim/config/coc.vim
+source ~/.vim/config/russian.vim
 
 :let mapleader = "."
 

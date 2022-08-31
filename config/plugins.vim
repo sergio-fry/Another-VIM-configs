@@ -1,6 +1,7 @@
 call plug#begin()
 " Plug 'tpope/vim-sensible'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
 Plug 'plasticboy/vim-markdown'
 " :CocInstall coc-solargraph
 Plug 'neoclide/coc-solargraph'
@@ -64,7 +65,7 @@ Plug 'tpope/vim-surround'
 Plug 'ekalinin/dockerfile.vim'
 "Plug 'vim-scripts/a.vim'
 Plug 'aklt/plantuml-syntax'
-Plug 'junegunn/goyo.vim'
+" Plug 'junegunn/goyo.vim'
 " Plug 'amix/vim-zenroom2'
 " Plug 'tyru/open-browser.vim'
 " Plug 'udalov/kotlin-vim'
@@ -81,5 +82,9 @@ Plug 'junegunn/goyo.vim'
 Plug 'mustache/vim-mustache-handlebars'
 
 Plug 'elixir-editors/vim-elixir'
+
+Plug 'shvechikov/vim-keymap-russian-jcukenmac'
+
+Plug 'tpope/vim-fireplace'
 call plug#end()
 
